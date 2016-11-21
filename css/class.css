@@ -1,0 +1,35 @@
+.class-header
+{
+    text-align:center;
+    color:#062425;
+}
+
+.class-item
+{
+    /*border:1px solid #062425;*/
+    margin-bottom:20px;
+    background-color: #f9f9f9;
+}
+
+.class-item-content
+{
+    text-align:center;
+}
+
+.class-item-footer
+{
+    background-color: #e3e3e3;
+    padding:0;
+}
+
+.class-item-footer :first-child
+{
+    cursor:pointer;
+    color: #ff2d0d;
+}
+.class-item-footer :last-child
+{
+    cursor:pointer;
+    color: #09cc25;
+    float:right;
+}

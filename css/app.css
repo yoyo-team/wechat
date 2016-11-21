@@ -1,0 +1,27 @@
+html,
+body{
+    height:100%;
+}
+.center-block {
+    text-align:center;
+}
+#avatar{
+    width:100px;
+    height:100px;
+    border-radius:100%;
+}
+#login_entry{
+
+}
+#class_filter_wrapper{
+    width:100%;
+}
+#class_filter{
+    text-align: center;
+}
+#note_filter_wrapper{
+    width:100%;
+}
+#note_filter{
+    text-align: center;
+}
