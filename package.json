@@ -1,0 +1,12 @@
+{
+  "name": "luoc.co_navbar",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "css-loader": "^0.26.1",
+    "style-loader": "^0.13.1",
+    "vue-loader": "^10.0.2",
+    "vue-template-loader": "^0.2.1",
+    "webpack": "^1.14.0"
+  }
+}

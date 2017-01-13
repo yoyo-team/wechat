@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <title>YOYO</title>
 
-    <link href="//cdn.bootcss.com/jquery-weui/0.8.0/css/jquery-weui.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/weui/0.4.3/style/weui.min.css" rel="stylesheet">
+    <!-- jQuery v1.11.0 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+
+    <!-- jQuery-Weui v1.0.0-rc.1 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/weui/1.1.0/style/weui.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.0-rc.0/css/jquery-weui.min.css">
+    <script src="//cdn.bootcss.com/jquery-weui/1.0.0-rc.0/js/jquery-weui.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery-weui/1.0.0-rc.0/js/swiper.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery-weui/1.0.0-rc.0/js/city-picker.min.js"></script>
+
+    <!-- fastclick v1.0.6 -->
+    <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
     <link href="css/app.css" rel="stylesheet">
-    <link href="css/tabbar.css" rel="stylesheet">
+    <link href="css/tab.css" rel="stylesheet">
     <link href="css/iconfont.css" rel="stylesheet">
     <link href="css/page.css" rel="stylesheet">
     <link href="css/cell.css" rel="stylesheet">
@@ -17,330 +28,53 @@
     <link href="css/class.css" rel="stylesheet">
     <link href="css/note.css" rel="stylesheet">
 
-    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
-    <script src="https://cdn.bootcss.com/jquery-weui/0.8.0/js/city-picker.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery-weui/0.8.0/js/jquery-weui.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery-weui/0.8.0/js/swiper.min.js"></script>
-    <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
-    <script src="https://www.twesix.cn/lib/xiaoyu/xiaoyu.js"></script>
-    <script src="https://www.twesix.cn/user/bar/login.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/events.js"></script>
+    <!--<script src="js/app.js"></script>-->
+    <!--<script src="js/events.js"></script>-->
     <script src="js/init.js"></script>
-    <script src="js/login.js"></script>
+    <!--<script src="js/login.js"></script>-->
     <script src="js/nav.js"></script>
     <script src="js/test.js"></script>
     <script src="js/vars.js"></script>
 </head>
 <body>
-<div class="weui_tab">
-    <!-- pages -->
-    <div class="weui_tab_bd">
-        <div id="page_home" class="weui_tab_bd_item">
-            here is the homepage !
-        </div>
-        <div id="page_notes" class="weui_tab_bd_item">
-            <br>
-            <h3 class="center-block">笔记列表</h3>
-            <div class="weui_cells">
-                <div class="weui_cell">
-                    <div class="weui_cell_bd" id="note_filter_wrapper">
-                        <input id="note_filter" class="weui_input" type="text" placeholder="请输入筛选条件">
-                    </div>
-                </div>
-            </div>
-            <br id="insert_notes_categories">
-            <h4 class="cells_title">目录1</h4>
-            <div class="weui_cells" data-category="1">
-                <div class="weui_cell open-popup" data-target="#note_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_note"></i>
-                    </div>
-                    <div class="weui_cell_bd">
-                        <p class="notes_category"><span>&nbsp;&nbsp;</span>笔记1-1</p>
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-target="#note_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_note"></i>
-                    </div>
-                    <div class="weui_cell_bd">
-                        <p class="notes_category"><span>&nbsp;&nbsp;</span>笔记1-2</p>
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-target="#note_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_note"></i>
-                    </div>
-                    <div class="weui_cell_bd">
-                        <p class="notes_category"><span>&nbsp;&nbsp;</span>笔记1-3</p>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <h4 class="cells_title">目录2</h4>
-            <div class="weui_cells" data-category="2">
-                <div  class="weui_cell open-popup" data-target="#note_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_note"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category"><span>&nbsp;&nbsp;</span>笔记2-1</p>
-                    </div>
-                </div>
-                <div  class="weui_cell open-popup" data-target="#note_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_note"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category"><span>&nbsp;&nbsp;</span>笔记2-2</p>
-                    </div>
-                </div>
-                <div  class="weui_cell open-popup" data-target="#note_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_note"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category"><span>&nbsp;&nbsp;</span>笔记2-3</p>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <h4 class="cells_title">目录3</h4>
-            <div class="weui_cells" data-category="3">
-                <div class="weui_cell open-popup" data-target="#note_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_note"></i>
-                    </div>
-                    <div class="weui_cell_bd">
-                        <p class="notes_category"><span>&nbsp;&nbsp;</span>笔记3-1</p>
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-target="#note_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_note"></i>
-                    </div>
-                    <div class="weui_cell_bd">
-                        <p class="notes_category"><span>&nbsp;&nbsp;</span>笔记3-2</p>
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-target="#note_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_note"></i>
-                    </div>
-                    <div class="weui_cell_bd">
-                        <p class="notes_category"><span>&nbsp;&nbsp;</span>笔记3-3</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div id="page_select" class="weui_tab_bd_item">
-            <br>
-            <h3 class="center-block">选择课程</h3>
-            <br>
-            <div class="weui_cells">
-                <div class="weui_cell">
-                    <div class="weui_cell_bd" id="class_filter_wrapper">
-                        <input id="class_filter" class="weui_input" type="text" placeholder="请输入筛选条件">
-                    </div>
-                </div>
-            </div>
-            <br id="class_insert_point">
-            <div class="weui_cells">
-                <div class="weui_cell open-popup" data-cid="1" data-target="#class_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_class"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category">&nbsp;&nbsp;相信未来</p>
-                    </div>
-                    <div class="weui_cell_ft">
-                        食指
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-cid="1" data-target="#class_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_class"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category">&nbsp;&nbsp;相信未来</p>
-                    </div>
-                    <div class="weui_cell_ft">
-                        食指
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-cid="1" data-target="#class_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_class"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category">&nbsp;&nbsp;相信未来</p>
-                    </div>
-                    <div class="weui_cell_ft">
-                        食指
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-cid="1" data-target="#class_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_class"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category">&nbsp;&nbsp;相信未来</p>
-                    </div>
-                    <div class="weui_cell_ft">
-                        食指
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-cid="1" data-target="#class_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_class"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category">&nbsp;&nbsp;相信未来</p>
-                    </div>
-                    <div class="weui_cell_ft">
-                        食指
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-cid="1" data-target="#class_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_class"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category">&nbsp;&nbsp;相信未来</p>
-                    </div>
-                    <div class="weui_cell_ft">
-                        食指
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-cid="1" data-target="#class_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_class"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category">&nbsp;&nbsp;相信未来</p>
-                    </div>
-                    <div class="weui_cell_ft">
-                        食指
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-cid="1" data-target="#class_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_class"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category">&nbsp;&nbsp;相信未来</p>
-                    </div>
-                    <div class="weui_cell_ft">
-                        食指
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-cid="1" data-target="#class_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_class"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category">&nbsp;&nbsp;相信未来</p>
-                    </div>
-                    <div class="weui_cell_ft">
-                        食指
-                    </div>
-                </div>
-                <div class="weui_cell open-popup" data-cid="1" data-target="#class_detail">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_class"></i>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <p class="notes_category">&nbsp;&nbsp;相信未来</p>
-                    </div>
-                    <div class="weui_cell_ft">
-                        食指
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="page_me" class="weui_tab_bd_item">
-            <div>
-                <div class="center-block">
-                    <br><br>
-                    <img src="https://static.a.twesix.cn/img/wechat/yoyo/logo.png"
-                         alt="avatar" id="avatar">
-                    <br><br>
-                    <p id="username">请登录</p>
-                    <br>
-                </div>
-            </div>
-
-            <div id="login_no">
-                <button class="weui_btn weui_btn_plain_default" id="qq_login">
-                    QQ账号登录
-                </button>
-                <button class="weui_btn weui_btn_plain_default" id="wechat_login">
-                    微信账号登录
-                </button>
-                <br><br>
-            </div>
-
-            <div id="login_yes">
-                <button class="weui_btn weui_btn_warn" id="logout">
-                    退出登录
-                </button>
-                <br><br>
-            </div>
-
-            <h4 class="cells_title">个人信息</h4>
-            <div class="weui_cells weui_cells_form">
-                <div class="weui_cell">
-                    <div class="weui_cell_hd">
-                        <label for="location" class="weui_label">我的位置</label>
-                    </div>
-                    <div class="weui_cell_bd">
-                        <input id="location" type="text" class="weui_input">
-                    </div>
-                </div>
-            </div>
-            <br><br>
-            <div class="weui_cells">
-                <div class="weui_cell open-popup" data-target="#about_yoyo">
-                    <div class="weui_cell_hd">
-                        <i class="iconfont icon_info"></i>
-                    </div>
-                    <div class="weui_cell_bd">
-                        <p>&nbsp;&nbsp;关于YOYO</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="weui-tab">
 
     <!-- navbar -->
-    <div class="weui_tabbar">
-        <a href="#page_home" id="nav_home" class="weui_tabbar_item">
-            <div class="weui_tabbar_icon">
+    <div class="weui-tabbar">
+
+        <a href="#page_home" id="nav_home" class="weui-tabbar__item">
+            <span id="badge_home" class="weui-badge">3</span>
+            <div class="weui-tabbar__icon">
                 <i id="icon_home" class="iconfont"></i>
             </div>
-            <p class="weui_tabbar_label">首页</p>
+            <p class="weui-tabbar__label">首页</p>
         </a>
-        <a href="#page_notes" id="nav_notes" class="weui_tabbar_item">
-            <div class="weui_tabbar_icon">
+
+        <a href="#page_notes" id="nav_notes" class="weui-tabbar__item">
+            <span id="badge_notes" class="weui-badge" style="position:absolute;top:-.4em;right:1em;">3</span>
+            <div class="weui-tabbar__icon">
                 <i id="icon_notes" class="iconfont"></i>
             </div>
-            <p class="weui_tabbar_label">笔记</p>
+            <p class="weui-tabbar__label">笔记</p>
         </a>
-        <a href="#page_select" id="nav_select" class="weui_tabbar_item">
-            <div class="weui_tabbar_icon">
+
+        <a href="#page_select" id="nav_select" class="weui-tabbar__item">
+            <span id="badge_select" class="weui-badge" style="position:absolute;top:-.4em;right:1em;">3</span>
+            <div class="weui-tabbar__icon">
                 <i id="icon_select" class="iconfont"></i>
             </div>
-            <p class="weui_tabbar_label">选课</p>
+            <p class="weui-tabbar__label">选课</p>
         </a>
-        <a href="#page_me" id="nav_me" class="weui_tabbar_item">
-            <div class="weui_tabbar_icon">
+
+        <a href="#page_me" id="nav_me" class="weui-tabbar__item">
+            <span id="badge_me" class="weui-badge" style="position:absolute;top:-.4em;right:1em;">3</span>
+            <div class="weui-tabbar__icon">
                 <i id="icon_me" class="iconfont"></i>
             </div>
-            <p class="weui_tabbar_label">账号</p>
+            <p class="weui-tabbar__label">账号</p>
         </a>
     </div>
+
 </div>
 <!-- popup pages -->
 <div class="weui-popup-container" id="about_yoyo">
