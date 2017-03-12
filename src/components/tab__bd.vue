@@ -16,10 +16,10 @@
             },
             components:
                 {
-                    page_home:require('./page_home.vue'),
-                    page_notes:require('./page_notes.vue'),
-                    page_select:require('./page_select.vue'),
-                    page_me:require('./page_me.vue')
+                    page_home:require('./pages/home.vue'),
+                    page_notes:require('./pages/notes.vue'),
+                    page_select:require('./pages/select.vue'),
+                    page_me:require('./pages/me.vue')
                 }
         }
 </script>

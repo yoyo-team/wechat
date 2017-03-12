@@ -35,37 +35,13 @@
     </div>
 </template>
 <script>
-
-    /* iconfont */
-    var iconfont={};
-
-    iconfont.home={};
-    iconfont.home.off='&#xe648;'; //home
-    iconfont.home.on='&#xe64b;';
-    iconfont.home.active=false;
-
-    iconfont.notes={};
-    iconfont.notes.off='&#xe636;'; // form
-    iconfont.notes.on='&#xe707;';
-    iconfont.notes.active=false;
-
-    iconfont.select={};
-    iconfont.select.off='&#xe663;'; //round_add
-    iconfont.select.on='&#xe662;';
-    iconfont.select.active=false;
-
-    iconfont.me={};
-    iconfont.me.off='&#xe6ea;'; //my
-    iconfont.me.on='&#xe6eb;';
-    iconfont.me.active=false;
-
     function mounted()
     {
-//        iconfont.home.$el=$("#icon_home");
-//        iconfont.notes.$el=$("#icon_notes");
-//        iconfont.select.$el=$("#icon_select");
-//        iconfont.me.$el=$("#icon_me");
-
+        window.addEventListener('hashchange',function()
+        {
+            $(".weui-tabbar__item").removeClass('weui-navbar__item--on');
+            $('a[href="#page_'+location.hash.slice(1)+'"]').addClass('weui-navbar__item--on');
+        });
         // 初始化
         $('a[href="#page_'+location.hash.slice(1)+'"]').addClass('weui-navbar__item--on');
         // 以后的类切换weui框架会自动完成
@@ -76,15 +52,6 @@
     {
         this.curr=id;
         location.hash='#'+id;
-//        this.iconfont.home.active=this.curr=='home';
-//        this.iconfont.notes.active=this.curr=='notes';
-//        this.iconfont.select.active=this.curr=='select';
-//        this.iconfont.me.active=this.curr=='me';
-//        this.iconfont.home.$el.html(this.iconfont.home.active?this.iconfont.home.on:this.iconfont.home.off);
-//        this.iconfont.notes.$el.html(this.iconfont.notes.active?this.iconfont.notes.on:this.iconfont.notes.off);
-//        this.iconfont.select.$el.html(this.iconfont.select.active?this.iconfont.select.on:this.iconfont.select.off);
-//        this.iconfont.me.$el.html(this.iconfont.me.active?this.iconfont.me.on:this.iconfont.me.off);
-
     }
 
     module.exports=
@@ -97,7 +64,6 @@
             data:function()
             {
                 return {
-//                    iconfont:iconfont,
                     curr:'home'
                 };
             },
@@ -140,8 +106,16 @@
     .weui-tabbar
     {
         background-color: #f9f9fa;
+        border-top:1px solid #a7a7ab
     }
-    .weui-navbar__item--on .iconfont{
+    .iconfont
+    {
+        font-weight: lighter;
+        color: #7b7f83;
+    }
+    .weui-navbar__item--on .iconfont,
+    .weui-navbar__item--on .weui-tabbar__label
+    {
         color:#09bb07;
     }
     .weui-badge

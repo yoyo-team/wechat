@@ -6,8 +6,8 @@ module.exports=
         entry: './src/entry.js',
         output:
             {
-                path: path.join(__dirname, 'dist'),
-                filename: 'build.js'
+                path: path.join(__dirname, 'dev'),
+                filename: 'index.js'
             },
         module:
             {
