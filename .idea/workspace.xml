@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49a63cf6-0632-4a80-abfa-7fb5d10a7bcd" name="Default" comment="backup for deleting the commented contents in files">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dev/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/popups/class.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/popups/note.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/popups/note_operations.vue" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/note_cells.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/select_class_cells.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/tab.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/app.vue" afterPath="$PROJECT_DIR$/src/components/app.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tab__bd.vue" afterPath="$PROJECT_DIR$/src/components/tab__bd.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tabbar.vue" afterPath="$PROJECT_DIR$/src/components/tabbar.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entry.js" afterPath="$PROJECT_DIR$/src/entry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/assets/img/logo.png" afterPath="$PROJECT_DIR$/dev/assets/img/logo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/mock/1.jpg" afterPath="$PROJECT_DIR$/dev/mock/1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/mock/2.jpg" afterPath="$PROJECT_DIR$/dev/mock/2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/mock/3.jpg" afterPath="$PROJECT_DIR$/dev/mock/3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/mock/mock.json" afterPath="$PROJECT_DIR$/dev/mock/mock.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/page_home.vue" afterPath="$PROJECT_DIR$/src/components/pages/home.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/page_me.vue" afterPath="$PROJECT_DIR$/src/components/pages/me.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/page_notes.vue" afterPath="$PROJECT_DIR$/src/components/pages/notes.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/page_select.vue" afterPath="$PROJECT_DIR$/src/components/pages/select.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -59,8 +36,8 @@
       <file leaf-file-name="select.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/pages/select.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+            <state relative-caret-position="456">
+              <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -90,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/popups/note.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="384">
-              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+              <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -179,8 +156,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -299,6 +274,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -312,8 +289,16 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="javascript.nodejs.core.library.configured.version" value="6.9.2" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/学习与工作/大创项目/yoyo/wechat/src/components/tab__bd.vue" />
+    <property name="add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="I:\学习与工作\大创项目\yoyo\wechat\dist" />
+      <recent name="I:\学习与工作\大创项目\yoyo\wechat" />
+      <recent name="I:\学习与工作\大创项目\yoyo\wechat\src\components\popups" />
+      <recent name="F:\学习与工作\大创项目\yoyo\wechat\dist\assets\img" />
+      <recent name="F:\学习与工作\大创项目\yoyo\wechat\src\components" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\学习与工作\大创项目\yoyo\wechat\src\components\pages" />
       <recent name="F:\学习与工作\大创项目\yoyo\wechat\src\components\cells" />
@@ -321,15 +306,8 @@
       <recent name="F:\学习与工作\大创项目\yoyo\wechat\dist" />
       <recent name="F:\学习与工作\大创项目\yoyo\wechat\src" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="I:\学习与工作\大创项目\yoyo\wechat" />
-      <recent name="I:\学习与工作\大创项目\yoyo\wechat\src\components\popups" />
-      <recent name="F:\学习与工作\大创项目\yoyo\wechat\dist\assets\img" />
-      <recent name="F:\学习与工作\大创项目\yoyo\wechat\src\components" />
-      <recent name="F:\学习与工作\大创项目\yoyo\wechat\dist" />
-    </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html (2)">
+  <component name="RunManager" selected="JavaScript Debug.index.html (3)">
     <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/wechat/index.html">
       <method />
     </configuration>
@@ -337,6 +315,9 @@
       <method />
     </configuration>
     <configuration default="false" name="index.html (2)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/wechat/dev/index.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="index.html (3)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="https://luoc.co/m/wx/yoyo/index.html">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -398,16 +379,18 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
       <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html (3)" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html (3)" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -445,7 +428,8 @@
       <workItem from="1489112945488" duration="15382000" />
       <workItem from="1489200412613" duration="17369000" />
       <workItem from="1489278377127" duration="1637000" />
-      <workItem from="1489282116310" duration="856000" />
+      <workItem from="1489282116310" duration="1040000" />
+      <workItem from="1489283190601" duration="41000" />
     </task>
     <task id="LOCAL-00001" summary="add a gitignore file">
       <created>1479688955706</created>
@@ -465,7 +449,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117776000" />
+    <option name="totallyTimeSpent" value="118001000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -478,25 +462,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23837209" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23784356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32589287" sideWeight="0.50422835" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32589287" sideWeight="0.49577168" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32589287" sideWeight="0.49577168" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.56808037" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,18 +623,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/mock/mock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/mock/1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/mock/mock.json" />
+    <entry file="file://$PROJECT_DIR$/dist/mock/1.jpg" />
     <entry file="file://$PROJECT_DIR$/dist/assets/img/logo.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -737,7 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1608">
           <caret line="67" column="100" lean-forward="true" selection-start-line="67" selection-start-column="100" selection-end-line="67" selection-end-column="100" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,7 +725,7 @@
     <entry file="file://$PROJECT_DIR$/src/components/popups/note.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
-          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -767,8 +740,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/select.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        <state relative-caret-position="456">
+          <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
           <folding />
         </state>
       </provider>
