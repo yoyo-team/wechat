@@ -88,6 +88,11 @@
                 document.body.addEventListener('yoyo:delete_note:ok',function()
                 {
                     self.refresh();
+                });
+
+                document.body.addEventListener('yoyo:add_note:ok',function()
+                {
+                    self.refresh();
                 })
             },
             methods:
