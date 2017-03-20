@@ -1,4 +1,0 @@
-function dev_test()
-{
-
-}

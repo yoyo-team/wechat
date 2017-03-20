@@ -11,8 +11,7 @@
             },
             components:
                 {
-                    tab:require('./tab.vue'),
-                    class_popup:require('./popups/class.vue')
+                    tab:require('./tab.vue')
                 }
         }
 </script>

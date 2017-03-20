@@ -2,6 +2,8 @@
     <div id="page_me" class="weui-tab__bd-item">
         <div v-if="!online">
             <br><br>
+            <h3 style="text-align: center">登录</h3>
+            <br><br>
             <form @submit.prevent="login($event)" class="weui-cells weui_cells_form">
                 <div class="weui-cell">
                     <div class="weui-cell__hd">
@@ -23,6 +25,13 @@
                     登录
                 </button>
             </form>
+
+            <br><br>
+
+            <button @click="register" type="button" class="weui-btn weui-btn_plain-default">
+                没有账号？点击注册
+            </button>
+
             <br><br>
         </div>
 
@@ -111,6 +120,11 @@
                                 location:this.location
                             }
                         );
+                    },
+                    register:function()
+                    {
+                        var e = new Event("yoyo:register_popup");
+                        document.body.dispatchEvent(e);
                     }
                 }
         }

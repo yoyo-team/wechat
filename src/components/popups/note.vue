@@ -66,45 +66,6 @@
                             self.note.push(item);
                         });
                     }
-//                    show_note:function(e)
-//                    {
-//                        var self=this;
-//                        e.message.forEach(function(e)
-//                        {
-//                            if(e.cid===self.cid)
-//                            {
-//                                self.load_class(e);
-//                            }
-//                        });
-//                        document.body.removeEventListener('yoyo:get_notes:ok',this.show_note);
-//                    },
-//                    load_note:function(e)
-//                    {
-//                        $("#note_detail").popup();
-//                        this.cid=e.message;
-//                        document.body.addEventListener('yoyo:get_notes:ok',this.show_note);
-//                        window.luoc.yoyo.get_notes
-//                        (
-//                            {
-//                                uid:window.luoc.navbar.data.uid
-//                            }
-//                        );
-//                    },
-//                    load_class:function(e)
-//                    {
-//                        function done(e)
-//                        {
-//                            document.body.removeEventListener('yoyo:get_class:ok',done);
-//                            console.log(JSON.stringify(e.message));
-//                        }
-//                        document.body.addEventListener('yoyo:get_class:ok',done);
-//                        window.luoc.yoyo.get_class
-//                        (
-//                            {
-//                                cid:e.cid
-//                            }
-//                        )
-//                    }
                 }
         }
 </script>
