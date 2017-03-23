@@ -1,5 +1,5 @@
 <template>
-    <div id="page_me" class="weui-tab__bd-item">
+    <div id="page_me" class="weui-tab__bd-item weui-tab__bd-item--active">
         <div v-if="!online">
             <br><br>
             <h3 style="text-align: center">登录</h3>

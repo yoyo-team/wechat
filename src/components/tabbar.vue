@@ -1,70 +1,44 @@
 <template>
     <div class="weui-tabbar">
 
-        <a href="#page_home" @mouseup="nav('home')" id="nav_home" class="weui-tabbar__item">
-            <!--<span id="badge_home" class="weui-badge">3</span>-->
-            <div class="weui-tabbar__icon">
-                <i id="icon_home" class="iconfont" :class="classes.home"></i>
-            </div>
-            <p class="weui-tabbar__label">首页</p>
-        </a>
+        <a href="#page_notes" @click="hash('#page_notes')" id="nav_notes" class="weui-tabbar__item">
 
-        <a href="#page_notes" @mouseup="nav('notes')" id="nav_notes" class="weui-tabbar__item">
-            <!--<span id="badge_notes" class="weui-badge">3</span>-->
             <div class="weui-tabbar__icon">
                 <i id="icon_notes" class="iconfont" :class="classes.notes"></i>
             </div>
+
             <p class="weui-tabbar__label">笔记</p>
+
         </a>
 
-        <a href="#page_select" @mouseup="nav('select')" id="nav_select" class="weui-tabbar__item">
-            <!--<span id="badge_select" class="weui-badge">3</span>-->
+        <a href="#page_select" @click="hash('#page_select')" id="nav_select" class="weui-tabbar__item">
+
             <div class="weui-tabbar__icon">
                 <i id="icon_select" class="iconfont" :class="classes.select"></i>
             </div>
+
             <p class="weui-tabbar__label">选课</p>
+
         </a>
 
-        <a href="#page_me" @mouseup="nav('me')" id="nav_me" class="weui-tabbar__item">
-            <!--<span id="badge_me" class="weui-badge">3</span>-->
+        <a href="#page_me" @click="hash('#page_me')" id="nav_me" class="weui-tabbar__item weui-bar__item--on">
+
             <div class="weui-tabbar__icon">
                 <i id="icon_me" class="iconfont" :class="classes.me"></i>
             </div>
+
             <p class="weui-tabbar__label">账号</p>
+
         </a>
     </div>
 </template>
 <script>
-    function mounted()
-    {
-        window.addEventListener('hashchange',function()
-        {
-            $(".weui-tabbar__item").removeClass('weui-navbar__item--on');
-            $('a[href="#page_'+location.hash.slice(1)+'"]').addClass('weui-navbar__item--on');
-        });
-        // 初始化
-        $('a[href="#page_'+location.hash.slice(1)+'"]').addClass('weui-navbar__item--on');
-        // 以后的类切换weui框架会自动完成
-
-        nav.call(this,location.hash.slice(1));
-    }
-    function nav(id)
-    {
-        this.curr=id;
-        location.hash='#'+id;
-    }
-
     module.exports=
         {
-            name:'tabbar',
-            props:
-                [
-//                ''
-            ],
             data:function()
             {
                 return {
-                    curr:'home'
+                    curr:'#page_me'
                 };
             },
             computed:
@@ -72,34 +46,32 @@
                     classes:function()
                     {
                         return{
-                            home:
-                                {
-                                    'icon-homefill':this.curr=='home',
-                                    'icon-home':this.curr!=='home'
-                                },
                             notes:
                                 {
-                                    'icon-formfill':this.curr=='notes',
-                                    'icon-form':this.curr!=='notes'
+                                    'icon-formfill':this.curr=='#page_notes',
+                                    'icon-form':this.curr!=='#page_notes'
                                 },
                             select:
                                 {
-                                    'icon-roundaddfill':this.curr=='select',
-                                    'icon-roundadd':this.curr!=='select'
+                                    'icon-roundaddfill':this.curr=='#page_select',
+                                    'icon-roundadd':this.curr!=='#page_select'
                                 },
                             me:
                                 {
-                                    'icon-myfill':this.curr=='me',
-                                    'icon-my':this.curr!=='me'
+                                    'icon-myfill':this.curr=='#page_me',
+                                    'icon-my':this.curr!=='#page_me'
                                 }
                         };
                     }
                 },
-            methods:
+            methods :
                 {
-                    nav:nav
-                },
-            mounted:mounted
+                    hash:function(hash)
+                    {
+                        location.hash = hash ;
+                        this.curr = hash ;
+                    }
+                }
         }
 </script>
 <style scoped>
@@ -113,10 +85,10 @@
         font-weight: lighter;
         color: #7b7f83;
     }
-    .weui-navbar__item--on .iconfont,
-    .weui-navbar__item--on .weui-tabbar__label
+    .weui-bar__item--on .weui-tabbar__icon .iconfont,
+    .weui-bar__item--on .weui-tabbar__label
     {
-        color:#09bb07;
+        color:#09bb07 !important;
     }
     .weui-badge
     {

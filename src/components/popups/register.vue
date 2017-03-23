@@ -27,6 +27,7 @@
                 </button>
             </form>
             <br><br>
+            <button class="weui-btn weui-btn_warn" @click="cancel()">取消</button>
         </div>
     </div>
 </template>
@@ -50,6 +51,10 @@
                                 password:this.password
                             }
                         );
+                    },
+                    cancel : function()
+                    {
+                        $.closePopup();
                     }
                 },
             mounted:function()

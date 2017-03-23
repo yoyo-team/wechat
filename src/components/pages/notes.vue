@@ -2,7 +2,7 @@
     <div id="page_notes" class="weui-tab__bd-item">
         <br>
 
-        <h3 class="center-block">笔记列表</h3>
+        <h3 style="text-align: center">笔记列表</h3>
 
         <div class="weui-cells">
             <div v-for="(note,cid) in notes" class="weui-cell" @click="show_operations(cid,note)">

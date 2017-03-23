@@ -2,7 +2,7 @@
     <div id="page_select" class="weui-tab__bd-item">
         <br>
 
-        <h3 class="center-block">选择课程</h3>
+        <h3 style="text-align: center">选择课程</h3>
 
         <div class="weui-cells">
             <div v-for="(class_content,cid) in classes" @click="show_class(class_content,cid)" class="weui-cell">
