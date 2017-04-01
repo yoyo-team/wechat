@@ -3,7 +3,7 @@
         <div class="weui-popup__overlay"></div>
         <div class="weui-popup__modal">
             <br>
-            <button @click="close()" class="weui-btn weui-btn_warn weui-btn_mini">关闭</button>
+            <button @click="close()" id="close_note_modal" class="weui-btn weui-btn_warn weui-btn_mini">关闭</button>
             <br>
             <div>
                 <div v-for="item in note" class="item">
@@ -61,7 +61,7 @@
                             var item=source.segments[e];
                             if(item.type==='img')
                             {
-                                item.url='//luoc.co/yoyo/yoyo-loves-you/classes/'+source.meta.cid+'/'+item.url;
+                                item.url='//luoc.co/yoyo/classes/'+source.meta.cid+'/'+item.url;
                             }
                             self.note.push(item);
                         });
@@ -85,5 +85,11 @@
     .img img
     {
         width:100%;
+    }
+    #close_note_modal
+    {
+        margin-top:10px;
+        margin-left:20px;
+        margin-bottom:20px;
     }
 </style>

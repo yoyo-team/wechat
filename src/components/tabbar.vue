@@ -78,7 +78,9 @@
     .weui-tabbar
     {
         background-color: #f9f9fa;
-        border-top:1px solid #a7a7ab
+        border-top:1px solid #a7a7ab;
+        position:fixed;
+        z-index:0;
     }
     .iconfont
     {

@@ -1,13 +1,13 @@
-var path = require('path');
-var webpack = require('webpack');
+let webpack=require('webpack');
+let path=require('path');
 
 module.exports=
     {
-        entry: './src/entry.js',
+        entry:'./src/index.js',
         output:
             {
-                path: path.join(__dirname, 'dev'),
-                filename: 'index.js'
+                path:path.resolve(__dirname,'dev'),
+                filename:'index.js'
             },
         module:
             {
@@ -16,11 +16,28 @@ module.exports=
                         {
                             test: /\.vue$/,
                             loader: 'vue-loader'
+                        },
+                        {
+                            test:/\.js$/,
+                            loader:'babel-loader',
+                            exclude:'/node_modules/'
                         }
                     ]
             },
-        resolve:
+        babel:
             {
-                // root:path.join(__dirname,'src','components')
+                presets:['latest']
+                // , plugins:
+                //     [
+                //         [
+                //             'transform-runtime',
+                //             {
+                //                 polyfill: true,
+                //                 regenerator: true,
+                //                 helpers: true,
+                //                 moduleName:'babel-runtime'
+                //             }
+                //         ]
+                // ]
             }
     };

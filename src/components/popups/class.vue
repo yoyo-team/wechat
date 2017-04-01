@@ -74,7 +74,7 @@
                             self.segments.push(false);
                             if(e.type==='img')
                             {
-                                e.url='//luoc.co/yoyo/yoyo-loves-you/classes/'+res.cid+'/'+e.url;
+                                e.url='//luoc.co/yoyo/classes/'+res.cid+'/'+e.url;
                             }
                             self.class_content.push(e);
                         })
