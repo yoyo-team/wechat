@@ -54,7 +54,7 @@
                                 console.log(result);
                                 if(result.status === 'ok')
                                 {
-                                    alert('注册成功');
+                                    alert('注册成功, 可以登录了');
                                     $.closePopup();
                                 }
                                 else
@@ -72,22 +72,6 @@
                         $.closePopup();
                     }
                 },
-            mounted:function()
-            {
-                document.body.addEventListener('yoyo:register_popup',function()
-                {
-                    $("#register_popup").popup();
-                });
-                document.body.addEventListener('navbar:register:ok',function()
-                {
-                    alert('注册成功');
-                    $.closePopup();
-                });
-                document.body.addEventListener('navbar:register:error',function()
-                {
-                    alert('注册失败');
-                });
-            }
         }
 </script>
 <style scoped>

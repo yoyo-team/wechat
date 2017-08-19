@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f4ea88c-818f-41c7-87b4-4b645c310bd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/index/component/pages/me.vue" afterPath="$PROJECT_DIR$/src/pages/index/component/pages/me.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/index/component/popup/register.vue" afterPath="$PROJECT_DIR$/src/pages/index/component/popup/register.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/index/entry.js" afterPath="$PROJECT_DIR$/src/pages/index/entry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/index/store/index.js" afterPath="$PROJECT_DIR$/src/pages/index/store/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/index/store/module/user.js" afterPath="$PROJECT_DIR$/src/pages/index/store/module/user.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="me.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="me.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/index/component/pages/me.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="93">
@@ -43,7 +38,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="entry.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="entry.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/index/entry.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -51,16 +46,6 @@
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/index/component/popup/register.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-144">
-              <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -101,10 +86,10 @@
         <option value="$PROJECT_DIR$/src/pages/index/component/app.vue" />
         <option value="$PROJECT_DIR$/src/pages/index/store/module/login.js" />
         <option value="$PROJECT_DIR$/src/pages/index/store/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/index/component/popup/register.vue" />
         <option value="$PROJECT_DIR$/src/pages/index/entry.js" />
         <option value="$PROJECT_DIR$/src/pages/index/store/module/user.js" />
         <option value="$PROJECT_DIR$/src/pages/index/component/pages/me.vue" />
+        <option value="$PROJECT_DIR$/src/pages/index/component/popup/register.vue" />
       </list>
     </option>
   </component>
@@ -338,12 +323,12 @@
       <updated>1503063651523</updated>
       <workItem from="1503063653609" duration="4892000" />
       <workItem from="1503069545158" duration="2222000" />
-      <workItem from="1503104378915" duration="26227000" />
+      <workItem from="1503104378915" duration="26407000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33341000" />
+    <option name="totallyTimeSpent" value="33521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -709,6 +694,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/index/component/popup/register.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1149">
+          <caret line="56" column="57" lean-forward="true" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/index/component/pages/me.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="93" column="53" lean-forward="true" selection-start-line="93" selection-start-column="53" selection-end-line="93" selection-end-column="53" />
+          <folding>
+            <element signature="e#4708#6113#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/index/store/module/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
@@ -723,24 +726,6 @@
           <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/index/component/popup/register.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144">
-          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/index/component/pages/me.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="93" column="53" lean-forward="true" selection-start-line="93" selection-start-column="53" selection-end-line="93" selection-end-column="53" />
-          <folding>
-            <element signature="e#4708#6113#0" expanded="false" />
           </folding>
         </state>
       </provider>
