@@ -38,7 +38,6 @@ vars.project =
     {
         entry: require('./project-config/entry'),
         pages: require('./project-config/pages'),
-        dlls: require('./project-config/dlls')
     };
 
 module.exports = vars;

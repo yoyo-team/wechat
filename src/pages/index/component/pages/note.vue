@@ -32,7 +32,7 @@
 
                 document.body.addEventListener('yoyo:note_operations:delete',this.delete_note);
 
-                document.body.addEventListener('navbar:login:ok',function(e)
+                document.body.addEventListener('navbar:user:ok',function(e)
                 {
                     self.refresh();
                 });

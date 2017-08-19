@@ -5,12 +5,14 @@
     </div>
 </template>
 <script>
-    module.exports=
+    import tabbar from './tabbar.vue';
+    import tab__bd from './tab__bd.vue';
+    export default
         {
             components:
                 {
-                    tabbar:require('./tabbar.vue'),
-                    tab__bd:require('./tab__bd.vue')
+                    tabbar,
+                    tab__bd
                 }
         }
 </script>

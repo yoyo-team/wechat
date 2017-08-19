@@ -12,8 +12,8 @@ pages.forEach(function(page)
     (
         {
             filename: `${page}.html`,
-            template: path.resolve(vars.path.src.pages, `${page}/index.ejs`),
-            chunks: [page],
+            template: path.resolve(vars.path.src.pages, `${page}/index.html`),
+            chunks: [],
             hash: true,
             cache: true,
         }

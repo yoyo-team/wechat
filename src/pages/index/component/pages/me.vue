@@ -2,9 +2,9 @@
     <div id="page_me" class="weui-tab__bd-item weui-tab__bd-item--active">
         <div v-if="!online">
             <br><br>
-            <h3 style="text-align: center">登录</h3>
+            <h3 class="text-center">登录</h3>
             <br><br>
-            <form @submit.prevent="login($event)" class="weui-cells weui_cells_form">
+            <form @submit.prevent="user($event)" class="weui-cells weui_cells_form">
                 <div class="weui-cell">
                     <div class="weui-cell__hd">
                         <label for="account" class="weui-label">账号</label>
@@ -21,6 +21,7 @@
                         <input v-model="password" id="password" type="password" class="weui-input" required>
                     </div>
                 </div>
+                <br><br>
                 <button type="submit" class="weui-btn weui-btn_plain-primary">
                     登录
                 </button>
@@ -37,7 +38,7 @@
 
         <div v-if="online">
             <br><br>
-            <h3 id="email"> {{email}} </h3>
+            <h3 id="email" class="text-center"> {{email}} </h3>
             <br><br>
             <h4 class="cells_title">个人信息</h4>
             <div class="weui-cells weui_cells_form">
@@ -59,13 +60,11 @@
     </div>
 </template>
 <script>
-    module.exports=
+    export default
         {
             data:function()
             {
                 return {
-                    email:'需要登录',
-                    online:false,
                     account:'',
                     password:'',
                     location:''
@@ -73,64 +72,38 @@
             },
             mounted:function()
             {
-                var self=this;
 
-                document.body.addEventListener('yoyo:get_location:ok',function(e)
-                {
-                    self.location=e.message.location;
-                });
-
-                document.body.addEventListener('navbar:login:ok',function(e)
-                {
-                    self.online=true;
-                    self.email=e.message.email;
-                    window.luoc.yoyo.get_location({uid:window.luoc.navbar.data.uid})
-                });
-                document.body.addEventListener('navbar:login:error',function(e)
-                {
-                    alert('登录失败');
-                    console.log(e);
-                });
-
-                document.body.addEventListener('navbar:logout',function(e)
-                {
-                    self.online=false;
-                    self.email='需要登录';
-                });
             },
+            computed:
+                {
+                    email: function()
+                    {
+                        return window.$store.state.user.profile.email;
+                    },
+                    online: function()
+                    {
+                        return window.$store.state.user.online;
+                    }
+                },
             methods:
                 {
-                    login:function()
+                    logout: function()
                     {
-                        window.luoc.navbar.login
-                        (
-                            {
-                                account:this.account,
-                                password:this.password
-                            }
-                        )
+
                     },
-                    logout:window.luoc.navbar.logout,
-                    set_location:function()
+                    register: function()
                     {
-                        window.luoc.yoyo.set_location
-                        (
-                            {
-                                uid:window.luoc.navbar.data.uid,
-                                location:this.location
-                            }
-                        );
+
                     },
-                    register:function()
+                    set_location: function()
                     {
-                        var e = new Event("yoyo:register_popup");
-                        document.body.dispatchEvent(e);
+
                     }
                 }
         }
 </script>
 <style scoped>
-    #email
+    .text-center
     {
         text-align: center;
     }

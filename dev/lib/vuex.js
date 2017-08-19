@@ -35,7 +35,7 @@ var applyMixin = function (Vue) {
 
   function vuexInit () {
     var options = this.$options;
-    // store injection
+    // user injection
     if (options.store) {
       this.$store = options.store;
     } else if (options.parent && options.parent.$store) {
@@ -248,14 +248,14 @@ var Store = function Store (options) {
   var this$1 = this;
   if ( options === void 0 ) options = {};
 
-  assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
+  assert(Vue, "must call Vue.use(Vuex) before creating a user instance.");
   assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
 
   var state = options.state; if ( state === void 0 ) state = {};
   var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
   var strict = options.strict; if ( strict === void 0 ) strict = false;
 
-  // store internal state
+  // user internal state
   this._committing = false;
   this._actions = Object.create(null);
   this._mutations = Object.create(null);
@@ -285,7 +285,7 @@ var Store = function Store (options) {
   // and collects all module getters inside this._wrappedGetters
   installModule(this, state, [], this._modules.root);
 
-  // initialize the store vm, which is responsible for the reactivity
+  // initialize the user vm, which is responsible for the reactivity
   // (also registers _wrappedGetters as computed properties)
   resetStoreVM(this, state);
 
@@ -300,7 +300,7 @@ prototypeAccessors.state.get = function () {
 };
 
 prototypeAccessors.state.set = function (v) {
-  assert(false, "Use store.replaceState() to explicit replace store state.");
+  assert(false, "Use user.replaceState() to explicit replace user state.");
 };
 
 Store.prototype.commit = function commit (_type, _payload, _options) {
@@ -365,7 +365,7 @@ Store.prototype.subscribe = function subscribe (fn) {
 Store.prototype.watch = function watch (getter, cb, options) {
     var this$1 = this;
 
-  assert(typeof getter === 'function', "store.watch only accepts a function.");
+  assert(typeof getter === 'function', "user.watch only accepts a function.");
   return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
 };
 
@@ -382,7 +382,7 @@ Store.prototype.registerModule = function registerModule (path, rawModule) {
   assert(Array.isArray(path), "module path must be a string or an Array.");
   this._modules.register(path, rawModule);
   installModule(this, this.state, path, this._modules.get(path));
-  // reset store to update getters...
+  // reset user to update getters...
   resetStoreVM(this, this.state);
 };
 
@@ -428,7 +428,7 @@ function resetStore (store, hot) {
 function resetStoreVM (store, state, hot) {
   var oldVm = store._vm;
 
-  // bind store public getters
+  // bind user public getters
   store.getters = {};
   var wrappedGetters = store._wrappedGetters;
   var computed = {};
@@ -441,7 +441,7 @@ function resetStoreVM (store, state, hot) {
     });
   });
 
-  // use a Vue instance to store the state tree
+  // use a Vue instance to user the state tree
   // suppress warnings just in case the user has added
   // some funky global mixins
   var silent = Vue.config.silent;
@@ -642,7 +642,7 @@ function registerGetter (store, type, rawGetter, local) {
 
 function enableStrictMode (store) {
   store._vm.$watch(function () { return this._data.$$state }, function () {
-    assert(store._committing, "Do not mutate vuex store state outside mutation handlers.");
+    assert(store._committing, "Do not mutate vuex user state outside mutation handlers.");
   }, { deep: true, sync: true });
 }
 

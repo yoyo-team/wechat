@@ -3809,7 +3809,7 @@
 
 	        document.body.addEventListener('yoyo:note_operations:delete', this.delete_note);
 
-	        document.body.addEventListener('navbar:login:ok', function (e) {
+	        document.body.addEventListener('navbar:user:ok', function (e) {
 	            self.refresh();
 	        });
 
@@ -4239,12 +4239,12 @@
 	            self.location = e.message.location;
 	        });
 
-	        document.body.addEventListener('navbar:login:ok', function (e) {
+	        document.body.addEventListener('navbar:user:ok', function (e) {
 	            self.online = true;
 	            self.email = e.message.email;
 	            window.luoc.yoyo.get_location({ uid: window.luoc.navbar.data.uid });
 	        });
-	        document.body.addEventListener('navbar:login:error', function (e) {
+	        document.body.addEventListener('navbar:user:error', function (e) {
 	            alert('登录失败');
 	            console.log(e);
 	        });
