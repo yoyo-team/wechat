@@ -4,13 +4,13 @@
             <br><br>
             <h3 class="text-center">登录</h3>
             <br><br>
-            <form @submit.prevent="user($event)" class="weui-cells weui_cells_form">
+            <form @submit.prevent="login($event)" class="weui-cells weui_cells_form">
                 <div class="weui-cell">
                     <div class="weui-cell__hd">
                         <label for="account" class="weui-label">账号</label>
                     </div>
                     <div class="weui-cell__bd">
-                        <input v-model="account" id="account" type="email" class="weui-input" required>
+                        <input v-model="account" id="account" type="text" class="weui-input" required>
                     </div>
                 </div>
                 <div class="weui-cell">
@@ -29,7 +29,7 @@
 
             <br><br>
 
-            <button @click="register" type="button" class="weui-btn weui-btn_plain-default">
+            <button @click="register()" type="button" class="weui-btn weui-btn_plain-default">
                 没有账号？点击注册
             </button>
 
@@ -60,6 +60,9 @@
     </div>
 </template>
 <script>
+
+    const userSDK = window['www---vanging---com___sdk___user'];
+
     export default
         {
             data:function()
@@ -67,37 +70,93 @@
                 return {
                     account:'',
                     password:'',
-                    location:''
+                    location:'',
+
+                    email: null,
+                    online: false,
                 };
             },
-            mounted:function()
+            mounted: function()
             {
-
+                this.sessionLogin();
             },
-            computed:
-                {
-                    email: function()
-                    {
-                        return window.$store.state.user.profile.email;
-                    },
-                    online: function()
-                    {
-                        return window.$store.state.user.online;
-                    }
-                },
             methods:
                 {
                     logout: function()
                     {
-
+                        window.$store.user.commit('logout');
+                        this.online = false;
+                        this.email = null;
+                        window.localStorage.removeItem("user:session");
                     },
                     register: function()
                     {
-
+                        $("#register_popup").popup();
                     },
                     set_location: function()
                     {
 
+                    },
+                    login: function()
+                    {
+                        const self = this;
+                        userSDK.login(this.account, this.password)
+                            .then(function(result)
+                            {
+                                result = JSON.parse(result);
+                                console.log(result);
+                                if(result.status === 'ok')
+                                {
+                                    window.localStorage.setItem("user:session", result.message);
+                                    self.sessionLogin();
+                                }
+                                else
+                                {
+                                    alert('登录失败');
+                                }
+                            }, function(err)
+                            {
+                                alert('登录失败');
+                            });
+                    },
+                    login_ok: function(profile)
+                    {
+                        window.$store.user.commit('login', profile);
+
+                        this.online = window.$store.user.state.online;
+                        this.email = window.$store.user.state.profile.email;
+                    },
+                    sessionLogin: function()
+                    {
+                        const self = this;
+                        const session = window.localStorage.getItem("user:session");
+                        if(session)
+                        {
+                            console.log(`[user] session login: yes`);
+
+                            userSDK.getProfileFromSession(session)
+                                .then(function(result)
+                                {
+                                    result = JSON.parse(result);
+                                    if(result.status === 'ok')
+                                    {
+                                        console.log(`[user] session login: ok`);
+                                        self.login_ok(result.message);
+                                    }
+                                    else
+                                    {
+                                        console.log(`[user] session login: fail`);
+                                        console.log(result);
+                                    }
+                                },function(err)
+                                {
+                                    console.log(err);
+                                });
+                        }
+                        else
+                        {
+                            console.log(`[user] session login: no`);
+                        }
                     }
                 }
         }

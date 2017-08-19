@@ -1,14 +1,9 @@
 import user from './module/user';
 
-const store = new Vuex.Store
-(
+const store =
     {
-        modules:
-            {
-                user,
-            }
-    }
-);
+        user,
+    };
 
 export default store;
-window.$store = store;
+// window.$store = store;

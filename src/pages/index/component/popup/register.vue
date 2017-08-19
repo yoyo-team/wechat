@@ -22,6 +22,7 @@
                         <input v-model="password" id="password" type="password" class="weui-input" required>
                     </div>
                 </div>
+                <br><br>
                 <button type="submit" class="weui-btn weui-btn_plain-primary">
                     注册
                 </button>
@@ -32,6 +33,8 @@
     </div>
 </template>
 <script>
+    const userSDK = window['www---vanging---com___sdk___user'];
+
     module.exports =
         {
             data: function () {
@@ -44,13 +47,25 @@
                 {
                     register:function(e)
                     {
-                        window.luoc.navbar.register
-                        (
+                        userSDK.register(this.email, this.password)
+                            .then(function(result)
                             {
-                                email:this.email,
-                                password:this.password
-                            }
-                        );
+                                result = JSON.parse(result);
+                                console.log(result);
+                                if(result.status === 'ok')
+                                {
+                                    alert('注册成功');
+                                    $.closePopup();
+                                }
+                                else
+                                {
+                                    alert('注册失败');
+                                }
+                            }, function(err)
+                            {
+                                console.log(err);
+                                alert('注册失败');
+                            });
                     },
                     cancel : function()
                     {
