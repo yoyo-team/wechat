@@ -1,10 +1,9 @@
-const user = new Vuex.Store
-(
+const user =
     {
         state:
             {
-                online: false,
-                profile: {},
+                online: true,
+                profile: { email: 'email' },
             },
         mutations:
             {
@@ -24,7 +23,6 @@ const user = new Vuex.Store
                 }
             },
         namespaced: true,
-    }
-);
+    };
 
 export default user;

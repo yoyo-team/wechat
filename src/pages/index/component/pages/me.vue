@@ -71,23 +71,28 @@
                     account:'',
                     password:'',
                     location:'',
-
-                    email: null,
-                    online: false,
                 };
             },
+            computed:
+                {
+                    email: function()
+                    {
+                        return this.$store.state.user.profile.email;
+                    },
+                    online: function()
+                    {
+                        return this.$store.state.user.online;
+                    }
+                },
             mounted: function()
             {
-                this.sessionLogin();
+                console.log(this);
             },
             methods:
                 {
                     logout: function()
                     {
-                        window.$store.user.commit('logout');
-                        this.online = false;
-                        this.email = null;
-                        window.localStorage.removeItem("user:session");
+                        this.$store.commit('user/logout');
                     },
                     register: function()
                     {
@@ -107,8 +112,7 @@
                                 console.log(result);
                                 if(result.status === 'ok')
                                 {
-                                    window.localStorage.setItem("user:session", result.message);
-                                    self.sessionLogin();
+                                    self.$store.commit('user/sessionLogin', result.message);
                                 }
                                 else
                                 {
@@ -119,45 +123,6 @@
                                 alert('登录失败');
                             });
                     },
-                    login_ok: function(profile)
-                    {
-                        window.$store.user.commit('login', profile);
-
-                        this.online = window.$store.user.state.online;
-                        this.email = window.$store.user.state.profile.email;
-                    },
-                    sessionLogin: function()
-                    {
-                        const self = this;
-                        const session = window.localStorage.getItem("user:session");
-                        if(session)
-                        {
-                            console.log(`[user] session login: yes`);
-
-                            userSDK.getProfileFromSession(session)
-                                .then(function(result)
-                                {
-                                    result = JSON.parse(result);
-                                    if(result.status === 'ok')
-                                    {
-                                        console.log(`[user] session login: ok`);
-                                        self.login_ok(result.message);
-                                    }
-                                    else
-                                    {
-                                        console.log(`[user] session login: fail`);
-                                        console.log(result);
-                                    }
-                                },function(err)
-                                {
-                                    console.log(err);
-                                });
-                        }
-                        else
-                        {
-                            console.log(`[user] session login: no`);
-                        }
-                    }
                 }
         }
 </script>

@@ -10,10 +10,15 @@
 <script>
 
     import tab from './tab.vue';
+    tab._Ctor = undefined;
     import class_popup from './popup/class.vue';
+    class_popup._Ctor = undefined;
     import note_popup from './popup/note.vue';
+    note_popup._Ctor = undefined;
     import note_operations_popup from './popup/note_operations.vue';
+    note_operations_popup._Ctor = undefined;
     import register_popup from './popup/register.vue';
+    register_popup._Ctor = undefined;
 
     export default
         {
