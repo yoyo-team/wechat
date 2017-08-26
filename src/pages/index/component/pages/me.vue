@@ -63,14 +63,18 @@
 
     const userSDK = window['www---vanging---com___sdk___user'];
 
+    const yoyoSDK = window['www---vanging---com___yoyo___sdk'];
+
     export default
         {
             data:function()
             {
                 return {
-                    account:'',
-                    password:'',
+                    account:'email',
+                    password:'password',
                     location:'',
+
+                    user_id: '',
                 };
             },
             computed:
@@ -82,14 +86,26 @@
                     online: function()
                     {
                         return this.$store.state.user.online;
-                    }
+                    },
+
                 },
             mounted: function()
             {
+                const self = this;
                 console.log(this);
+                setTimeout(function()
+                {
+                    self.get_location();
+                }, 1000);
+
             },
             methods:
                 {
+                    error: function(err)
+                    {
+                        console.log(err);
+                        alert('网络错误，请重试');
+                    },
                     logout: function()
                     {
                         this.$store.commit('user/logout');
@@ -100,7 +116,37 @@
                     },
                     set_location: function()
                     {
-
+                        yoyoSDK.setLocation(this.$store.state.user.profile.uid, this.location)
+                            .then(function(result)
+                            {
+                                result = JSON.parse(result);
+                                if(result.status === 'ok')
+                                {
+                                    alert('设置用户位置成功');
+                                }
+                                else
+                                {
+                                    alert('设置用户位置失败')
+                                }
+                            }, this.error);
+                    },
+                    get_location: function()
+                    {
+                        console.log(this);
+                        const self = this;
+                        yoyoSDK.getLocation(this.$store.state.user.profile.uid)
+                            .then(function(result)
+                            {
+                                result = JSON.parse(result);
+                                if(result.status === 'ok')
+                                {
+                                    self.location = result.message;
+                                }
+                                else
+                                {
+                                    console.log(result);
+                                }
+                            }, this.error);
                     },
                     login: function()
                     {
@@ -113,6 +159,11 @@
                                 if(result.status === 'ok')
                                 {
                                     self.$store.commit('user/sessionLogin', result.message);
+                                    setTimeout(function()
+                                    {
+                                        console.log(JSON.stringify(self.$store.state));
+                                        self.get_location();
+                                    }, 1000);
                                 }
                                 else
                                 {
