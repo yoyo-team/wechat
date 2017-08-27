@@ -1,7 +1,7 @@
 <template>
     <div class="weui-tab__bd">
         <!--<note></note>-->
-        <!--<_select></_select>-->
+        <_select></_select>
         <me></me>
     </div>
 </template>

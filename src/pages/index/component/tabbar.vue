@@ -48,17 +48,17 @@
                         return{
                             notes:
                                 {
-                                    'icon-formfill':this.curr=='#page_notes',
+                                    'icon-formfill':this.curr==='#page_notes',
                                     'icon-form':this.curr!=='#page_notes'
                                 },
                             select:
                                 {
-                                    'icon-roundaddfill':this.curr=='#page_select',
+                                    'icon-roundaddfill':this.curr==='#page_select',
                                     'icon-roundadd':this.curr!=='#page_select'
                                 },
                             me:
                                 {
-                                    'icon-myfill':this.curr=='#page_me',
+                                    'icon-myfill':this.curr==='#page_me',
                                     'icon-my':this.curr!=='#page_me'
                                 }
                         };
@@ -92,12 +92,7 @@
     {
         color:#09bb07 !important;
     }
-    .weui-badge
-    {
-        position:absolute;
-        top:-.4em;
-        right:1em;
-    }
+
     .weui-tabbar__icon>i
     {
         font-size:27px;

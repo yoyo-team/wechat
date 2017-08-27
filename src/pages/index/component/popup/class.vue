@@ -15,7 +15,7 @@
                 </div>
 
                 <div v-if="item.type==='img'" class="img">
-                    <img :src="item.url">
+                    <img :src="item.content">
                 </div>
 
             </div>
@@ -27,87 +27,104 @@
     </div>
 </template>
 <script>
-    module.exports =
+
+    const yoyoSDK = window['www---vanging---com___yoyo___sdk'];
+
+    export default
+    {
+        data: function()
         {
-            data: function()
+            return {
+                class_content:[],
+                class_id:null,
+                segments:[]
+            };
+        },
+        mounted:function()
+        {
+            var self=this;
+            document.body.addEventListener('yoyo:class_popup',function(e)
             {
-                return {
-                    class_content:[],
-                    cid:null,
-                    segments:[]
-                };
-            },
-            mounted:function()
+                $("#class_detail").popup();
+                self.class_id=e.message.class_id;
+
+                yoyoSDK.getClassContent(self.class_id)
+                    .then(function(class_content)
+                    {
+                        console.log(class_content);
+                        self.update_class_content(class_content);
+                    }, function(err)
+                    {
+                        console.log(err);
+                    });
+            });
+        },
+        methods:
             {
-                var self=this;
-                document.body.addEventListener('yoyo:class_popup',function(e)
+                close:function()
                 {
-                    $("#class_detail").popup();
-                    self.cid=e.message.cid;
-                    document.body.addEventListener('yoyo:get_class:ok',self.done_load_class);
-                    window.luoc.yoyo.get_class({cid:self.cid});
-                });
-            },
-            methods:
+                    this.class_content=[];
+                    this.class_id=null;
+                    this.segments=[];
+                    $.closePopup();
+                },
+                toggle:function(id)
                 {
-                    close:function()
+                    this.segments[id]=!this.segments[id];
+                    this.segments.reverse().reverse(); // tell vue to update the view`
+                },
+                update_class_content:function(class_content)
+                {
+                    const self = this;
+                    const baseUrl = `//www.vanging.com/yoyo/classes/${self.class_id}/`;
+
+                    class_content.forEach(function(e)
                     {
-                        this.class_content=[];
-                        this.cid=null;
-                        this.segments=[];
-                        $.closePopup();
-                    },
-                    toggle:function(id)
-                    {
-                        this.segments[id]=!this.segments[id];
-                        this.segments.reverse().reverse();
-                    },
-                    done_load_class:function(e)
-                    {
-                        var self=this;
-                        document.body.removeEventListener('yoyo:get_class:ok',this.done_load_class);
-                        var res=e.message;
-                        console.log(res);
-                        res.segments.forEach(function(e)
+                        self.segments.push(false);
+                        if(e.type === 'img')
                         {
-                            e=JSON.parse(JSON.stringify(e));
-                            self.segments.push(false);
-                            if(e.type==='img')
-                            {
-                                e.url='//luoc.co/yoyo/classes/'+res.cid+'/'+e.url;
-                            }
-                            self.class_content.push(e);
-                        })
-                    },
-                    save:function()
-                    {
-                        var self=this;
-                        var segments='';
-                        this.segments.forEach(function(e,i)
-                        {
-                            if(e)
-                            {
-                                segments+=i+',';
-                            }
-                        });
-                        segments=segments.slice(0,segments.length-1);
-                        function done()
-                        {
-                            alert('笔记保存成功');
-                            document.body.removeEventListener('yoyo:add_note:ok',done);
+                            e.content = baseUrl + e.content;
                         }
-                        document.body.addEventListener('yoyo:add_note:ok',done);
-                        window.luoc.yoyo.add_note
-                        (
+                        self.class_content.push(e);
+                    })
+                },
+                save:function()
+                {
+                    const self=this;
+                    let segments='';
+                    this.segments.forEach(function(e,i)
+                    {
+                        if(e)
+                        {
+                            segments+=i+',';
+                        }
+                    });
+                    segments=segments.slice(0,segments.length-1);
+
+                    if(this.$store.state.user.online)
+                    {
+                        yoyoSDK.addNote(this.$store.state.user.profile.uid, this.class_id, segments)
+                            .then(function(result)
                             {
-                                uid:window.luoc.navbar.data.uid,
-                                cid:this.cid,
-                                segments:segments
-                            }
-                        );
+                                result = JSON.parse(result);
+                                if(result.status === 'ok')
+                                {
+                                    alert('笔记保存成功');
+                                }
+                                else
+                                {
+                                    console.log(result);
+                                    alert('保存失败，请重试');
+                                }
+                            }, this.error);
+                    }
+                    else
+                    {
+                        alert('你没有登录');
                     }
                 }
-        }
+            }
+    }
 </script>
 <style scoped>
     #set,
@@ -115,7 +132,8 @@
     {
         margin:10px;
     }
-    #set{
+    #set
+    {
         float:right;
     }
     .item

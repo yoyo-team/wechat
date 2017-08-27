@@ -92,7 +92,6 @@
             mounted: function()
             {
                 const self = this;
-                console.log(this);
                 setTimeout(function()
                 {
                     self.get_location();
@@ -132,7 +131,6 @@
                     },
                     get_location: function()
                     {
-                        console.log(this);
                         const self = this;
                         yoyoSDK.getLocation(this.$store.state.user.profile.uid)
                             .then(function(result)
