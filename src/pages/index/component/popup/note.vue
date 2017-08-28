@@ -5,6 +5,13 @@
             <br>
             <button @click="close()" id="close_note_modal" class="weui-btn weui-btn_warn weui-btn_mini">关闭</button>
             <br>
+            <br>
+            <div class="text-center">
+                <h3>{{ class_name }}</h3>
+                <h4>{{ class_releaser }}</h4>
+            </div>
+            <br>
+            <br>
             <div>
                 <div v-for="item in note" class="item">
 
@@ -13,7 +20,7 @@
                     </div>
 
                     <div v-if="item.type==='img'" class="img">
-                        <img :src="item.url">
+                        <img :src=" `//www.vanging.com/yoyo/classes/${class_id}/${item.content}` ">
                     </div>
 
                 </div>
@@ -26,13 +33,17 @@
     </div>
 </template>
 <script>
-    module.exports =
+
+    const yoyoSDK = window['www---vanging---com___yoyo___sdk'];
+
+    export default
         {
             data: function () {
                 return {
                     note:[],
-                    name:'',
-                    releaser:''
+                    class_name: null,
+                    class_releaser: null,
+                    class_id: null,
                 };
             },
             mounted:function()
@@ -44,32 +55,50 @@
                     close:function()
                     {
                         this.note=[];
+                        this.class_name = null;
+                        this.class_releaser = null;
+                        this.class_id = null;
                         $.closePopup();
                     },
                     show:function(e)
                     {
-                        var self=this;
+                        const self=this;
+
                         $("#note_detail").popup();
-                        var source=e.message.source;
-                        this.name=source.meta.name;
-                        this.releaser=source.meta.releaser;
-                        var index=e.message.segments.split(',');
-                        console.log(index);
-                        console.log(source);
-                        index.forEach(function(e)
-                        {
-                            var item=source.segments[e];
-                            if(item.type==='img')
+                        const note=e.message;
+                        console.log(note);
+
+                        this.class_name = note.class_info.class_name;
+                        this.class_releaser = note.class_info.class_releaser;
+                        this.class_id = note.class_id;
+
+                        yoyoSDK.getClassContent(note.class_id)
+                            .then(function(result)
                             {
-                                item.url='//luoc.co/yoyo/classes/'+source.meta.cid+'/'+item.url;
-                            }
-                            self.note.push(item);
-                        });
+                                console.log(result);
+                                note.class_content = result;
+                                while(self.note.length > 0)
+                                {
+                                    self.note.pop();
+                                }
+                                note.note_content.split(',').forEach(function(e)
+                                {
+                                    self.note.push(note.class_content[parseInt(e)]);
+                                })
+                            }, function(err)
+                            {
+                                console.log(err);
+                                alert('加载笔记内容出错');
+                            });
                     }
                 }
         }
 </script>
 <style scoped>
+    .text-center
+    {
+        text-align: center;
+    }
     .item
     {
         line-height: 1.2;

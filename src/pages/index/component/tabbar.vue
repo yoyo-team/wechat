@@ -66,9 +66,9 @@
                 },
             methods :
                 {
-                    hash:function(hash)
+                    hash: function(hash)
                     {
-                        location.hash = hash ;
+                        window.location.hash = hash ;
                         this.curr = hash ;
                     }
                 }

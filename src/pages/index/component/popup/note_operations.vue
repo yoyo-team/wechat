@@ -35,7 +35,7 @@
                     {
                         $.closePopup();
                         var event=new Event('yoyo:note_operations:delete');
-                        event.message=this.note.source.cid;
+                        event.message=this.note;
                         document.body.dispatchEvent(event);
                         this.note=null;
                     }

@@ -5,12 +5,12 @@
         <h3 style="text-align: center">笔记列表</h3>
 
         <div class="weui-cells">
-            <div v-for="(note,cid) in notes" class="weui-cell" @click="show_operations(cid,note)">
+            <div v-for="note in notes" class="weui-cell" @click="show_operations(note)">
                 <div class="weui-cell__hd">
                     <i class="iconfont icon-tagfill"></i>
                 </div>
                 <div class="weui-cell__bd">
-                    <p class="notes_category"><span>&nbsp;</span>{{note.source.meta.name}}</p>
+                    <p class="notes_category"><span>&nbsp;</span>{{ `${note.class_info.class_name} (${note.class_info.class_releaser})`}}</p>
                 </div>
             </div>
         </div>
@@ -18,71 +18,31 @@
     </div>
 </template>
 <script>
-    module.exports =
+
+    const yoyoSDK = window['www---vanging---com___yoyo___sdk'];
+
+    export default
         {
             data:function()
             {
                 return {
-                    notes:{}
+                    notes: []
                 };
             },
             mounted:function()
             {
-                var self=this;
+                const self=this;
 
                 document.body.addEventListener('yoyo:note_operations:delete',this.delete_note);
 
-                document.body.addEventListener('navbar:user:ok',function(e)
+                window.addEventListener('hashchange',function(e)
                 {
-                    self.refresh();
-                });
-
-                // get class
-                document.body.addEventListener('yoyo:get_class:ok',function(e)
-                {
-                    if(self.notes[e.message.cid]!==undefined)
+                    if(window.location.hash === '#page_notes')
                     {
-                        Vue.set
-                        (
-                            self.notes[e.message.cid],
-                            'source',
-                            e.message
-                        );
+                        self.refresh();
                     }
                 });
-                document.body.addEventListener('yoyo:get_class:error',function(e)
-                {
-                    console.log('课程加载失败');
-                    console.log(e.message);
-                });
 
-                // get notes
-                document.body.addEventListener('yoyo:get_notes:ok',function(e)
-                {
-                    self.notes={};
-                    e.message.forEach(function(e)
-                    {
-                        Vue.set
-                        (
-                            self.notes,
-                            e.cid,
-                            {
-                                segments:e.segments,
-                                source:
-                                    {
-                                        cid:'',
-                                        meta:{},
-                                        segments:[]
-                                    }
-                            }
-                        );
-                        window.luoc.yoyo.get_class({cid:e.cid})
-                    });
-                });
-                document.body.addEventListener('yoyo:get_notes:error',function(e)
-                {
-                    alert('刷新笔记列表失败，请检查网络环境');
-                });
 
                 // delete note
                 document.body.addEventListener('yoyo:delete_note:ok',function()
@@ -97,39 +57,90 @@
             },
             methods:
                 {
+                    error: function(err)
+                    {
+                        console.log(err);
+                        alert('网络错误，请重试');
+                    },
                     refresh:function()
                     {
-                        if(window.luoc.navbar.online)
+                        const self = this;
+
+                        if(this.$store.state.user.online)
                         {
-                            window.luoc.yoyo.get_notes
-                            (
+                            yoyoSDK.getNotes(this.$store.state.user.profile.uid)
+                                .then(function(result)
                                 {
-                                    uid:window.luoc.navbar.data.uid
-                                }
-                            );
+                                    result = JSON.parse(result);
+                                    if(result.status === 'ok')
+                                    {
+                                        console.log(result.message);
+                                        self.update_notes(result.message);
+                                    }
+                                    else
+                                    {
+                                        console.log(result);
+                                    }
+                                }, this.error);
                         }
                         else
                         {
                             alert('您没有登录');
                         }
                     },
+                    update_notes: function(notes)
+                    {
+                        const self = this;
+                        while(this.notes.length > 0)
+                        {
+                            this.notes.pop();
+                        }
+                        notes.forEach(function(note)
+                        {
+                            yoyoSDK.getClass(note.class_id)
+                                .then(function(result)
+                                {
+                                    result = JSON.parse(result);
+                                    if(result.status === 'ok')
+                                    {
+                                        note.class_info = result.message;
+                                        self.notes.push(note);
+                                    }
+                                    else
+                                    {
+                                        console.log(result);
+                                    }
+                                })
+                        })
+                    },
                     delete_note:function(e)
                     {
+                        const self = this;
                         if(confirm('确定要删除这条笔记 ？'))
                         {
-                            window.luoc.yoyo.delete_note
-                            (
+                            console.log(e);
+                            const note = e.message;
+                            yoyoSDK.deleteNote(note.user_id, note.class_id)
+                                .then(function(result)
                                 {
-                                    uid:window.luoc.navbar.data.uid,
-                                    cid:e.message
-                                }
-                            );
+                                    result = JSON.parse(result);
+                                    if(result.status === 'ok')
+                                    {
+                                        alert('删除笔记成功');
+                                        self.refresh();
+                                    }
+                                    else
+                                    {
+                                        alert('删除笔记失败');
+                                        console.log(result);
+                                    }
+                                }, this.error);
                         }
                     },
-                    show_operations:function(cid,note)
+                    show_operations:function(note)
                     {
-                        var event=new Event('yoyo:note_operations_popup');
-                        event.message=JSON.parse(JSON.stringify(note));
+                        const event=new Event('yoyo:note_operations_popup');
+                        event.message=JSON.parse(JSON.stringify(note));  // copy
                         document.body.dispatchEvent(event);
                     }
                 }

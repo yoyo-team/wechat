@@ -1,6 +1,6 @@
 <template>
     <div class="weui-tab__bd">
-        <!--<note></note>-->
+        <note></note>
         <_select></_select>
         <me></me>
     </div>

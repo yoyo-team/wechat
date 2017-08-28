@@ -110,6 +110,9 @@
                                 if(result.status === 'ok')
                                 {
                                     alert('笔记保存成功');
+
+                                    const event = new Event('yoyo:add_note:ok');
+                                    document.body.dispatchEvent(event);
                                 }
                                 else
                                 {
