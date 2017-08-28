@@ -39,6 +39,7 @@
                 {
                     if(window.location.hash === '#page_notes')
                     {
+                        console.log(`[page_notes] init`);
                         self.refresh();
                     }
                     else

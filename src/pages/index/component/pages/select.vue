@@ -33,37 +33,53 @@
             },
             mounted:function()
             {
-                var self=this;
+                const self=this;
 
-                setTimeout(function()
+                window.addEventListener('hashchange',function(e)
                 {
-                    if( ! self.$store.state.user.online)
+                    if(window.location.hash === '#page_select')
                     {
-                        alert('需要登录');
-                        return;
+                        console.log(`[page_select] init`);
+                        self.init();
                     }
-                    const uid = self.$store.state.user.profile.uid;
-                    console.log(self);
-
-                    yoyoSDK.getLocation(uid)
-                        .then(function(result)
+                    else
+                    {
+                        while(self.classes.length > 0)
                         {
-                            result = JSON.parse(result);
-                            if(result.status === 'ok')
-                            {
-                                self.location = result.message;
-                                self.query_class(result.message);
-                            }
-                            else
-                            {
-                                console.log(result);
-                            }
-                        }, self.error);
-                }, 1000);
+                            self.classes.pop();
+                        }
+                    }
+                });
 
             },
             methods:
                 {
+                    init: function()
+                    {
+                        const self = this;
+                        if( ! self.$store.state.user.online)
+                        {
+                            alert('需要登录');
+                            return;
+                        }
+                        const uid = self.$store.state.user.profile.uid;
+                        console.log(self);
+
+                        yoyoSDK.getLocation(uid)
+                            .then(function(result)
+                            {
+                                result = JSON.parse(result);
+                                if(result.status === 'ok')
+                                {
+                                    self.location = result.message;
+                                    self.query_class(result.message);
+                                }
+                                else
+                                {
+                                    console.log(result);
+                                }
+                            }, self.error);
+                    },
                     error: function(err)
                     {
                         console.log(err);
