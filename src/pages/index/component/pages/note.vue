@@ -41,6 +41,13 @@
                     {
                         self.refresh();
                     }
+                    else
+                    {
+                        while(self.notes.length > 0)
+                        {
+                            self.notes.pop();
+                        }
+                    }
                 });
 
 
