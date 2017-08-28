@@ -154,3 +154,9 @@
                 }
         }
 </script>
+<style scoped>
+    #page_notes
+    {
+        -webkit-overflow-scrolling: touch;
+    }
+</style>

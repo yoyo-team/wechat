@@ -95,6 +95,10 @@
         }
 </script>
 <style scoped>
+    #note_detail
+    {
+        -webkit-overflow-scrolling: touch;
+    }
     .text-center
     {
         text-align: center;

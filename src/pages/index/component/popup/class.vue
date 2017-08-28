@@ -130,6 +130,10 @@
     }
 </script>
 <style scoped>
+    #class_detail
+    {
+        -webkit-overflow-scrolling: touch;
+    }
     #set,
     #unset
     {

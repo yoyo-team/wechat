@@ -120,3 +120,9 @@
                 }
         }
 </script>
+<style scoped>
+    #page_select
+    {
+        -webkit-overflow-scrolling: touch;
+    }
+</style>
