@@ -35,7 +35,6 @@
             data: function () {
                 return {
                     classes: [],
-                    location: ''
                 };
             },
             mounted:function()
@@ -70,7 +69,6 @@
                             return;
                         }
                         const uid = self.$store.state.user.profile.uid;
-                        console.log(self);
 
                         yoyoSDK.getLocation(uid)
                             .then(function(result)
@@ -78,7 +76,6 @@
                                 result = JSON.parse(result);
                                 if(result.status === 'ok')
                                 {
-                                    self.location = result.message;
                                     self.query_class(result.message);
                                 }
                                 else
